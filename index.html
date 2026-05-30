@@ -1,0 +1,87 @@
+<!-- PIN -->
+<div id="lockScreen">
+  <div class="pinBox">
+    <h1>💗</h1>
+    <h2>Untuk Bulaannn</h2>
+    <p>Masukkan PIN</p>
+
+    <input type="password" id="pin" placeholder="PIN">
+    <button onclick="checkPin()">Buka Pesan</button>
+
+    <p id="error"></p>
+  </div>
+</div>
+
+<!-- Musik -->
+<audio id="bgMusic" autoplay loop>
+    <source src="ssstik.io_1780138380446.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Pesan -->
+<div id="mainPage" style="display:none;">
+    <h1>Untuk Bulaannn 🌷</h1>
+
+    <p>
+      Hai Bulaannn...
+
+      Aku cuma mau bilang maaf.
+
+      Aku sadar ada beberapa sikap dan kata-kataku yang mungkin bikin kamu kecewa,
+      kesel, atau sedih.
+
+      Aku nggak mau cari alasan buat membenarkan semuanya.
+      Aku cuma pengen jujur kalau aku nyesel dan aku benar-benar minta maaf.
+
+      Makasih ya karena selama ini masih mau sabar dan peduli.
+      Aku tahu aku belum selalu jadi orang yang terbaik.
+
+      Aku nggak berharap semuanya langsung baik-baik aja,
+      tapi aku berharap kamu tahu kalau permintaan maaf ini tulus.
+
+      🌷💗
+    </p>
+
+    <div id="questionBox">
+        <h3>Jadi... mau memaafkan aku? 🥺</h3>
+
+        <button id="yesBtn">💗 Iya</button>
+        <button id="laterBtn">🌷 Belum Siap</button>
+
+        <p id="result"></p>
+    </div>
+</div>
+
+<script>
+function checkPin(){
+    const pin = document.getElementById("pin").value;
+
+    if(pin === "2010"){
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+    }else{
+        document.getElementById("error").innerHTML =
+        "PIN salah 🥺";
+    }
+}
+
+const laterBtn = document.getElementById("laterBtn");
+const yesBtn = document.getElementById("yesBtn");
+const result = document.getElementById("result");
+
+if(laterBtn){
+  laterBtn.addEventListener("mouseover", () => {
+      const x = Math.random()*150 - 75;
+      const y = Math.random()*100 - 50;
+
+      laterBtn.style.transform =
+      `translate(${x}px, ${y}px)`;
+  });
+}
+
+if(yesBtn){
+  yesBtn.addEventListener("click", () => {
+      result.innerHTML =
+      "💗 Makasih ya Bulaannn. Aku bakal berusaha jadi lebih baik lagi.";
+  });
+}
+</script>
