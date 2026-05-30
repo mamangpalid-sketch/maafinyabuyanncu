@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Bulaannn 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Cinzel',serif;
+    background:linear-gradient(135deg,#ffd6e7,#ffb6d9,#ff8fc4);
+    min-height:100vh;
+    overflow:hidden;
+}
+
+/* PIN */
+#lockScreen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.pin-card{
+    width:320px;
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+    color:white;
+    background:rgba(255,255,255,.2);
+    backdrop-filter:blur(15px);
+}
+
+.pin-card input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:15px;
+    margin:15px 0;
+    text-align:center;
+}
+
+.pin-card button{
+    padding:12px 25px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* CLOUD */
+#cloudTransition{
+    position:fixed;
+    inset:0;
+    display:none;
+    z-index:998;
+}
+
+.cloud{
+    position:absolute;
+    width:150%;
+    height:50%;
+    background:white;
+    filter:blur(30px);
+}
+
+.topCloud{
+    top:-60%;
+    animation:cloudDown 2s forwards;
+}
+
+.bottomCloud{
+    bottom:-60%;
+    animation:cloudUp 2s forwards;
+}
+
+@keyframes cloudDown{
+    to{top:0;}
+}
+
+@keyframes cloudUp{
+    to{bottom:0;}
+}
+
+/* MAIN */
+#main{
+    display:none;
+}
+
+.container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.card{
+    width:100%;
+    max-width:800px;
+    padding:40px;
+    border-radius:30px;
+    text-align:center;
+    color:white;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(15px);
+}
+
+.card h1{
+    margin-bottom:15px;
+}
+
+.openBtn{
+    margin-top:15px;
+}
+
+/* MESSAGE */
+.message{
+    display:none;
+    margin-top:25px;
+    line-height:2;
+}
+
+/* QUESTION */
+#questionBox{
+    display:none;
+    margin-top:30px;
+}
+
+.btnWrap{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.choiceBtn{
+    border:none;
+    padding:15px 25px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.yes{
+    background:white;
+    color:#ff4fa0;
+}
+
+.no{
+    background:#ff69b4;
+    color:white;
+}
+
+/* MEME */
+.meme{
+    position:fixed;
+    font-size:48px;
+    animation:float 5s infinite ease-in-out;
+}
+
+.m1{top:10%;left:8%}
+.m2{top:15%;right:8%}
+.m3{bottom:12%;left:10%}
+.m4{bottom:10%;right:10%}
+
+@keyframes float{
+    50%{transform:translateY(-20px)}
+}
+
+/* HEARTS */
+.heart{
+    position:fixed;
+    color:white;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{transform:translateY(-100px)}
+    to{transform:translateY(110vh)}
+}
+
+.musicBtn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:20;
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="ssstik.io_1780138380446.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" class="musicBtn">🎵 Musik</button>
+
+<div id="lockScreen">
+    <div class="pin-card">
+        <h2>🔒 Untuk Bulaannn</h2>
+        <p>Masukkan PIN</p>
+
+        <input type="password" id="pin" placeholder="PIN">
+
+        <button onclick="checkPin()">Buka 💗</button>
+
+        <p id="error"></p>
+    </div>
+</div>
+
+<div id="cloudTransition">
+    <div class="cloud topCloud"></div>
+    <div class="cloud bottomCloud"></div>
+</div>
+
+<div id="main">
+
+<div class="meme m1">🐱</div>
+<div class="meme m2">🧸</div>
+<div class="meme m3">🌷</div>
+<div class="meme m4">✨</div>
+
+<div class="container">
+<div class="card">
+
+<h1>Untuk Bulaannn 💗</h1>
+
+<p id="typing"></p>
+
+<button class="openBtn" onclick="showMessage()">
+Buka Surat 💌
+</button>
+
+<div class="message" id="message">
+
+Hai Bulaannn,
+
+<br><br>
+
+Aku cuma mau bilang maaf.
+
+<br><br>
+
+Aku sadar mungkin ada kata-kata atau sikap aku yang bikin kamu kecewa, kesel, atau sedih.
+
+Aku nggak mau cari alasan buat membenarkan semuanya. Aku cuma pengen jujur kalau aku nyesel dan benar-benar minta maaf.
+
+<br><br>
+
+Makasih ya karena selama ini masih mau sabar dan peduli.
+
+Aku tahu aku belum selalu jadi orang yang terbaik.
+
+<br><br>
+
+Aku nggak berharap semuanya langsung baik-baik aja.
+
+Aku cuma berharap kamu tahu kalau permintaan maaf ini tulus.
+
+<br><br>
+
+🌷💗
+
+</div>
+
+<div id="questionBox">
+
+<h2>Jadi... mau memaafkan aku? 🥺</h2>
+
+<div class="btnWrap">
+
+<button id="yesBtn" class="choiceBtn yes">
+💗 Iya
+</button>
+
+<button id="laterBtn" class="choiceBtn no">
+🌷 Aku masih butuh waktu
+</button>
+
+</div>
+
+<p id="result" style="margin-top:20px;"></p>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+function checkPin(){
+    const pin=document.getElementById("pin").value;
+
+    if(pin==="2010"){
+
+        document.getElementById("cloudTransition").style.display="block";
+
+        setTimeout(()=>{
+            document.getElementById("lockScreen").style.display="none";
+            document.getElementById("cloudTransition").style.display="none";
+            document.getElementById("main").style.display="block";
+        },2000);
+
+    }else{
+        document.getElementById("error").innerHTML="PIN salah 🥺";
+    }
+}
+
+function showMessage(){
+    document.getElementById("message").style.display="block";
+    document.getElementById("questionBox").style.display="block";
+}
+
+const text="Aku punya sesuatu yang ingin kusampaikan ke kamu...";
+let i=0;
+
+function typing(){
+    if(i<text.length){
+        document.getElementById("typing").innerHTML+=text.charAt(i);
+        i++;
+        setTimeout(typing,60);
+    }
+}
+typing();
+
+for(let i=0;i<40;i++){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(5+Math.random()*8)+"s";
+    document.body.appendChild(heart);
+}
+
+window.onload=function(){
+
+    const yesBtn=document.getElementById("yesBtn");
+    const laterBtn=document.getElementById("laterBtn");
+    const result=document.getElementById("result");
+
+    yesBtn.onclick=function(){
+        result.innerHTML="💗 Makasih ya Bulaannn.";
+    };
+
+    laterBtn.onclick=function(){
+        result.innerHTML="🌷 Aku ngerti kok.";
+    };
+
+    laterBtn.addEventListener("mouseover",function(){
+        const x=Math.random()*120-60;
+        const y=Math.random()*80-40;
+        this.style.transform=`translate(${x}px,${y}px)`;
+    });
+};
+
+const music=document.getElementById("bgMusic");
+const musicBtn=document.getElementById("musicBtn");
+
+musicBtn.onclick=function(){
+    if(music.paused){
+        music.play();
+        musicBtn.innerHTML="⏸️ Pause";
+    }else{
+        music.pause();
+        musicBtn.innerHTML="🎵 Musik";
+    }
+};
+</script>
+
+</body>
+</html>
